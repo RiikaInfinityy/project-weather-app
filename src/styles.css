@@ -1,0 +1,148 @@
+body {
+  background-image: url("../images/mainbg.jpg");
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  max-width: 1250px;
+  max-height: 900px;
+  margin: auto;
+}
+
+.mainContainer {
+  margin: 3% 10%;
+  padding: 50px;
+  border: 2px solid antiquewhite;
+  border-radius: 4px;
+  background-image: url("../images/containerbg.jpg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  max-height: 720px;
+}
+
+.searchBar,
+.currentWeatherReport,
+.additionalTabs,
+.fullWeatherReport {
+  font-family: "Noto Serif", serif;
+  padding: 15px;
+  color: #222324;
+}
+
+.fullWeatherReport {
+  max-width: 800px;
+  margin: auto;
+}
+
+.submitIcon {
+  width: 25px;
+}
+
+.currentTemp {
+  font-size: 60px;
+}
+
+.misc {
+  text-align: center;
+}
+
+.minmaxTemp {
+  font-size: 20px;
+}
+
+.curveText {
+  font-size: 45px;
+  color: white;
+  font-family: "Dancing Script", cursive;
+}
+
+.currentLoc {
+  text-align: right;
+  font-size: 18px;
+  line-height: 10px;
+}
+
+.card {
+  max-width: 125px;
+  min-width: 125px;
+  color: black;
+  opacity: 0.9;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin: 10px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.card-subtitle {
+  font-size: 11px;
+  font-weight: bolder;
+}
+
+.card:hover {
+  background-color: #ffeaea;
+}
+
+.additionalInfo {
+  font-size: 15px;
+  line-height: 10px;
+  text-align: left;
+}
+
+.cityName {
+  font-size: 40px;
+  text-align: right;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  padding-top: 20px;
+}
+
+.searchIcon {
+  font-size: 20px;
+  color: #272727;
+}
+
+.searchIcon:hover {
+  color: white;
+}
+
+.changeFont {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.partlycloudy {
+  font-size: 30px;
+  margin: 10px auto;
+  color: #8d8a8a;
+}
+
+.partlycloudyxl {
+  font-size: 30px;
+  margin: 10px auto;
+  color: #8d8a8a;
+}
+
+.sunny {
+  font-size: 30px;
+  margin: 10px auto;
+  color: #eecf68;
+}
+
+.raining {
+  font-size: 30px;
+  margin: 10px auto;
+  color: #479adf;
+}
+
+.storm {
+  font-size: 30px;
+  margin: 10px auto;
+  color: #5147df;
+}
+
+.thermometer {
+  font-size: 20px;
+}
