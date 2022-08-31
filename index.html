@@ -69,12 +69,12 @@
             style="--bs-bg-opacity: 0.5;"
           >
             <div class="row">
-              <div class="col-1 align-self-center">
-              <img id="current-weather-icon" /> 
+              <div class="col-auto align-self-center">
+              <img id="current-weather-icon"/><br/>
+              <span class="conditiontext" id="weather-condition"></span>              
               </div>
-              <div class="col-auto"></div>
               <div class="col-auto align-self-center currentTemp" id="current-temp"> 
-              </div>
+              </div> 
               <div class="col-auto align-self-center">
                 <button
                   type="button"
@@ -94,9 +94,9 @@
               </div>
               <div class="col align-self-center additionalInfo">
                 <br/><br/>
-                <p><strong>Humidity: </strong><span id="humidity"></span> %</p>
-                <p><strong>Wind: </strong><span id="wind"></span> m/s</p>
-                <p><strong>Pressure: </strong><span id="pressure"></span> hpa</p>
+                <p><strong>Humidity: </strong><span id="humidity"></span>%</p>
+                <p><strong>Wind: </strong><span id="wind"></span>m/s</p>
+                <p><strong>Pressure: </strong><span id="pressure"></span>hpa</p>
               </div>
 
               <div class="col-auto currentLoc align-self-center">
@@ -105,14 +105,15 @@
                 <br />
                   <div class="changeFont">
                     <i class="bi bi-calendar-heart"></i> 
-                    <span id="current-day"></span>
+                    <span id="current-day"> </span>
                     <i class="bi bi-dot"></i> 
-                    <span id="current-date"></span>
-                    <i class="bi bi-dot"></i> 
-                    <span id="current-time"></span>
+                    <span id="current-date"></span> <i class="bi bi-dot"></i> 
+   
                   </div>
-                </p>
-                <p><strong><span class="changeFont" id="weather-condition"></span></strong></p>
+                    <p> <div class="timeNow"><i class="bi bi-dot"></i><strong>Current Time: </strong> 
+                    <span id="current-time"></span><i class="bi bi-dot"></i>  </div>
+</p>
+                    
               </div>
             </div>
           </div>

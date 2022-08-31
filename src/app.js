@@ -12,7 +12,7 @@ function currentDateDisplay() {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
 
   let day = days[date.getDay()];
@@ -29,7 +29,7 @@ function currentDateDisplay() {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ];
 
   let month = months[date.getMonth()];

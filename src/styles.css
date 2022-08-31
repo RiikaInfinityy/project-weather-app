@@ -109,7 +109,16 @@ body {
 
 .changeFont {
   font-size: 18px;
-  text-transform: uppercase;
+}
+
+.timeNow {
+  font-size: 17px;
+}
+
+.conditiontext {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bolder;
 }
 
 .partlycloudy {
