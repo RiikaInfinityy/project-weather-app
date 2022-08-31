@@ -1,6 +1,3 @@
-//Default Display
-navigator.geolocation.getCurrentPosition(findCurrentLoc);
-
 //  Display the current date and time
 function currentDateDisplay() {
   let date = new Date();
@@ -56,8 +53,6 @@ function currentDateDisplay() {
   currentTime.innerHTML = `${hour}:${minutes}`;
 }
 
-currentDateDisplay();
-
 function searchInputCity(event) {
   event.preventDefault();
   searchCity(document.querySelector("#city-input").value);
@@ -86,6 +81,8 @@ function displaySearchWeather(response) {
     response.data.main.temp
   );
 
+  celsiusTemp = response.data.main.temp;
+
   let setupIcon = document.querySelector("#current-weather-icon");
   setupIcon.setAttribute(
     "src",
@@ -106,36 +103,45 @@ function displaySearchWeather(response) {
   document.querySelector("#pressure").innerHTML = response.data.main.pressure;
 }
 
+//convert celsius to fahrenheit
+function convertToFahrenheit(event) {
+  event.preventDefault();
+
+  //remove celsius active class
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let currentTemp = document.querySelector("#current-temp");
+  let cToFahr = (celsiusTemp * 9) / 5 + 32;
+
+  currentTemp.innerHTML = Math.round(cToFahr);
+}
+
+//convert fahrenheit to celsius
+function convertToCelsius(event) {
+  event.preventDefault();
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  let currentTemp = document.querySelector("#current-temp");
+  currentTemp.innerHTML = Math.round(celsiusTemp);
+}
+
+//use to store the searched temperature
+let celsiusTemp = null;
+
+//default display
+navigator.geolocation.getCurrentPosition(findCurrentLoc);
+
+//set up date and time display
+currentDateDisplay();
+
 let search = document.querySelector("#submit-button");
 search.addEventListener("click", searchInputCity);
 
 let current = document.querySelector("#current-loc-button");
 current.addEventListener("click", getCurrentLocation);
 
-/*
-
-//convert celsius to fahrenheit
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let currentTemp = document.querySelector("#current-temp");
-
-  let cToFahr = Math.round((19 * 9) / 5 + 32);
-  currentTemp.innerHTML = cToFahr;
-}
-
-//convert fahrenheit to celsius
-function convertToCelsius(event) {
-  event.preventDefault();
-  let currentTemp = document.querySelector("#current-temp");
-
-  let fToCel = Math.round(((66 - 32) * 5) / 9);
-  currentTemp.innerHTML = fToCel;
-}
-
 let fahrenheit = document.querySelector("#fahrenheit-convert");
 fahrenheit.addEventListener("click", convertToFahrenheit);
 
 let celsius = document.querySelector("#celsius-convert");
 celsius.addEventListener("click", convertToCelsius);
-
-*/

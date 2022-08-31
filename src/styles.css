@@ -154,3 +154,9 @@ body {
 .thermometer {
   font-size: 20px;
 }
+
+.active {
+  color: #272727;
+  font-weight: bolder;
+  cursor: default;
+}
