@@ -75,6 +75,12 @@ function searchCity(city) {
   axios.get(apiUrl).then(displaySearchWeather);
 }
 
+function getForecast(coordinates) {
+  let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 // Display the current weather
 function displaySearchWeather(response) {
   document.querySelector("#current-temp").innerHTML = Math.round(
@@ -84,6 +90,7 @@ function displaySearchWeather(response) {
   celsiusTemp = response.data.main.temp;
 
   let setupIcon = document.querySelector("#current-weather-icon");
+
   setupIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -101,6 +108,43 @@ function displaySearchWeather(response) {
   );
 
   document.querySelector("#pressure").innerHTML = response.data.main.pressure;
+
+  getForecast(response.data.coord);
+  //console.log(response.data.coord);
+}
+
+function displayForecast(response) {
+  //console.log(response.data.daily);
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+
+  let forecastHTML = `<div class="row justify-content-center">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2 card text-center">
+          <div class="card-body">
+            <h4 class="card-title weather-forecast-day">${day}</h4>
+            <h6 class="card-subtitle mb-2 text-muted weather-forecast-date"">Aug 17<sup>th</sup>, 2022</h6>
+            <p>
+             <img
+                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  alt=""
+                  width="45"
+                />
+            </p>
+            <span class="weather-forecast-temp-max">27&#176;</span> 
+            <span class="weather-forecast-temp-min">16&#176;</span>
+            <br />
+          </div></div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  //console.log(forecastHTML);
 }
 
 //convert celsius to fahrenheit

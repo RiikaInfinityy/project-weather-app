@@ -38,6 +38,7 @@
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body class="mainBody">
+
     <div class="mainContainer shadow">
       <form class="row g-3 searchBar">
         <div class="col align-self-center">
@@ -112,7 +113,7 @@
                   </div>
                     <p> <div class="timeNow"><i class="bi bi-dot"></i><strong>Time: </strong> 
                     <span id="current-time"></span><i class="bi bi-dot"></i>  </div>
-</p>
+                </p>
                     
               </div>
             </div>
@@ -126,82 +127,7 @@
         </div>
       </div>
 
-      <div
-        class="row fullWeatherReport bg-light border-white rounded justify-content-center"
-        style="--bs-bg-opacity: 0.5;"
-      >
-        <div class="col-2 card text-center">
-          <div class="card-body">
-            <h4 class="card-title">Wednesday</h4>
-            <h6 class="card-subtitle mb-2 text-muted">
-              Aug 17<sup>th</sup>, 2022
-            </h6>
-            <p>
-              <i class="fa-solid fa-cloud-sun partlycloudy fa-fade"></i>
-            </p>
-            <span class="minmaxTemp"><strong>27&#176;</strong> 16&#176; </span>
-            <br />
-          </div>
-        </div>
-
-        <div class="col-2 card text-center">
-          <div class="card-body">
-            <h4 class="card-title">Thursday</h4>
-            <h6 class="card-subtitle mb-2 text-muted">
-              Aug 18<sup>th</sup>, 2022
-            </h6>
-            <p><i class="fa-solid fa-sun sunny fa-sync fa-spin"></i></p>
-            <span class="minmaxTemp"><strong>27&#176;</strong> 17&#176; </span>
-            <br />
-          </div>
-        </div>
-
-        <div class="col-2 card text-center">
-          <div class="card-body">
-            <h4 class="card-title">Friday</h4>
-            <h6 class="card-subtitle mb-2 text-muted">
-              Aug 19<sup>th</sup>, 2022
-            </h6>
-            <p><i class="fa-solid fa-sun sunny fa-sync fa-spin"></i></p>
-            <span class="minmaxTemp"><strong>28&#176;</strong> 19&#176; </span>
-            <br />
-          </div>
-        </div>
-
-        <div class="col-2 card text-center">
-          <div class="card-body">
-            <h4 class="card-title">Saturday</h4>
-            <h6 class="card-subtitle mb-2 text-muted">
-              Aug 20<sup>th</sup>, 2022
-            </h6>
-            <p>
-              <i
-                class="fa-solid fa-cloud-rain raining fa-beat-fade"
-                style="
-                  --fa-beat-fade-opacity: 0.67;
-                  --fa-beat-fade-scale: 1.075;
-                "
-              ></i>
-            </p>
-            <span class="minmaxTemp"><strong>22&#176;</strong> 13&#176; </span>
-            <br />
-          </div>
-        </div>
-
-        <div class="col-2 card text-center">
-          <div class="card-body">
-            <h4 class="card-title">Sunday</h4>
-            <h6 class="card-subtitle mb-2 text-muted">
-              Aug 21<sup>th</sup>, 2022
-            </h6>
-            <p><i class="fa-solid fa-cloud-bolt storm fa-beat-fade"></i></p>
-              <span class="minmaxTemp"
-                ><strong>23&#176;</strong> 12&#176;
-              </span>
-              <br />
-            </p>
-          </div>
-        </div>
+      <div class="row fullWeatherReport bg-light border-white rounded justify-content-center" style="--bs-bg-opacity: 0.5;" id="forecast">
       </div>
       <hr />
 

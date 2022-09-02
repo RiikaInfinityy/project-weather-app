@@ -7,15 +7,18 @@ body {
   margin: auto;
 }
 
+.mainBody {
+  margin: auto;
+}
+
 .mainContainer {
   margin: 3% 10%;
-  padding: 50px;
+  padding: 55px;
   border: 2px solid antiquewhite;
-  border-radius: 4px;
+  border-radius: 30px;
   background-image: url("../images/containerbg.jpg");
   background-repeat: no-repeat;
   background-size: auto 100%;
-  max-height: 720px;
 }
 
 .searchBar,
@@ -43,8 +46,13 @@ body {
   text-align: center;
 }
 
-.minmaxTemp {
-  font-size: 20px;
+.weather-forecast-temp-max {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.weather-forecast-temp-min {
+  font-size: 18px;
 }
 
 .curveText {
