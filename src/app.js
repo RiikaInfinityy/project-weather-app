@@ -87,6 +87,8 @@ function displaySearchWeather(response) {
     response.data.main.temp
   );
 
+  console.log(response.data);
+
   celsiusTemp = response.data.main.temp;
 
   let setupIcon = document.querySelector("#current-weather-icon");
@@ -109,64 +111,96 @@ function displaySearchWeather(response) {
 
   document.querySelector("#pressure").innerHTML = response.data.main.pressure;
 
+  document.querySelector("#feelslike").innerHTML = Math.round(
+    response.data.main.feels_like
+  );
+
   getForecast(response.data.coord);
-  //console.log(response.data.coord);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+
+  let day = date.getDay();
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  let month = months[date.getMonth()];
+  let year = date.getFullYear();
+  let today = date.getDate();
+
+  return `${month} ${today}, ${year}`;
 }
 
 function displayForecast(response) {
-  //console.log(response.data.daily);
+  let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-
   let forecastHTML = `<div class="row justify-content-center">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2 card text-center">
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2 card text-center bg-warning " style="--bs-bg-opacity: 0.5;" >
           <div class="card-body">
-            <h4 class="card-title weather-forecast-day">${day}</h4>
-            <h6 class="card-subtitle mb-2 text-muted weather-forecast-date"">Aug 17<sup>th</sup>, 2022</h6>
+            <h4 class="card-title weather-forecast-day">${formatDay(
+              forecastDay.dt
+            )}</h4>
+            <h6 class="card-subtitle mb-2 text-muted weather-forecast-date"">${formatDate(
+              forecastDay.dt
+            )}</h6>
             <p>
              <img
-                  src="http://openweathermap.org/img/wn/50d@2x.png"
-                  alt=""
-                  width="45"
+                  src="http://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png"
+                  width=60"
                 />
             </p>
-            <span class="weather-forecast-temp-max">27&#176;</span> 
-            <span class="weather-forecast-temp-min">16&#176;</span>
+            <span class="weather-forecast-temp-max">${Math.round(
+              forecastDay.temp.max
+            )}°</span> 
+            <span class="weather-forecast-temp-min">${Math.round(
+              forecastDay.temp.min
+            )}°</span>
             <br />
           </div></div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  //console.log(forecastHTML);
-}
-
-//convert celsius to fahrenheit
-function convertToFahrenheit(event) {
-  event.preventDefault();
-
-  //remove celsius active class
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  let currentTemp = document.querySelector("#current-temp");
-  let cToFahr = (celsiusTemp * 9) / 5 + 32;
-
-  currentTemp.innerHTML = Math.round(cToFahr);
-}
-
-//convert fahrenheit to celsius
-function convertToCelsius(event) {
-  event.preventDefault();
-  celsius.classList.add("active");
-  fahrenheit.classList.remove("active");
-  let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = Math.round(celsiusTemp);
 }
 
 //use to store the searched temperature
@@ -183,9 +217,3 @@ search.addEventListener("click", searchInputCity);
 
 let current = document.querySelector("#current-loc-button");
 current.addEventListener("click", getCurrentLocation);
-
-let fahrenheit = document.querySelector("#fahrenheit-convert");
-fahrenheit.addEventListener("click", convertToFahrenheit);
-
-let celsius = document.querySelector("#celsius-convert");
-celsius.addEventListener("click", convertToCelsius);

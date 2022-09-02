@@ -37,7 +37,7 @@
     ></script>
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
-  <body class="mainBody">
+  <body class="mainBody" >
 
     <div class="mainContainer shadow">
       <form class="row g-3 searchBar">
@@ -67,36 +67,22 @@
         <div>
           <div
             class="container text-center currentWeatherReport bg-light border-white rounded"
-            style="--bs-bg-opacity: 0.5;"
+            style="--bs-bg-opacity: 0.6;"
           >
             <div class="row">
               <div class="col-auto align-self-center">
               <img id="current-weather-icon"/><br/>
               <span class="conditiontext" id="weather-condition"></span>              
               </div>
-              <div class="col-auto align-self-center currentTemp" id="current-temp"> 
+              <div class="col-auto align-self-center align-items-end currentTemp ">
+                 <span id ="current-temp"></span><span class="unit">°C</span>
               </div> 
-              <div class="col-auto align-self-center">
-                <button
-                  type="button"
-                  class="btn btn-light btn-outline-secondary btn-lg active"
-                  id ="celsius-convert"
-                >
-                  &#176;C 
-                </button>
-                 <i class="fa-solid fa-temperature-full thermometer text-secondary"> </i>
-                <button
-                  type="button"
-                  class="btn btn-light btn-outline-secondary btn-lg"
-                  id ="fahrenheit-convert"
-                >
-                   &#176;F
-                </button>
-              </div>
+              <div class="col-auto"></div>
               <div class="col align-self-center additionalInfo">
                 <br/><br/>
+                <p><strong>Feels Like: </strong><span id="feelslike"></span>°</p>
                 <p><strong>Humidity: </strong><span id="humidity"></span>%</p>
-                <p><strong>Wind: </strong><span id="wind"></span>m/s</p>
+                <p><strong>Wind Speed: </strong><span id="wind"></span>m/s</p>
                 <p><strong>Pressure: </strong><span id="pressure"></span>hpa</p>
               </div>
 
@@ -108,13 +94,11 @@
                     <i class="bi bi-calendar-heart"></i>
                     <span id="current-day"> </span>
                     <i class="bi bi-dot"></i> 
-                    <span id="current-date"></span> <i class="bi bi-dot"></i> 
-   
+                    <span id="current-date">   
                   </div>
-                    <p> <div class="timeNow"><i class="bi bi-dot"></i><strong>Time: </strong> 
-                    <span id="current-time"></span><i class="bi bi-dot"></i>  </div>
-                </p>
-                    
+                    <p> 
+                      <div class="timeNow">Last Updated on <span id="current-time"></span></div>
+                    </p>
               </div>
             </div>
           </div>
@@ -127,7 +111,7 @@
         </div>
       </div>
 
-      <div class="row fullWeatherReport bg-light border-white rounded justify-content-center" style="--bs-bg-opacity: 0.5;" id="forecast">
+      <div class="row fullWeatherReport bg-light border-white rounded justify-content-center" style="--bs-bg-opacity: 0.6;" id="forecast">
       </div>
       <hr />
 
@@ -135,7 +119,7 @@
         <a
           href="https://github.com/RiikaInfinityy/project-weather-app"
           class="btn btn-light btn-outline-secondary btn-lg"
-          target="_blank" alt="Source Code at GitHub"
+          target="_blank" alt="Open Source Code at GitHub"
           ><i class="bi bi-code-square"></i></a>
            <a
           href="https://www.shecodes.io/graduates/49436-rika-lim"

@@ -49,10 +49,12 @@ body {
 .weather-forecast-temp-max {
   font-size: 18px;
   font-weight: bold;
+  color: black;
 }
 
 .weather-forecast-temp-min {
   font-size: 18px;
+  color: black;
 }
 
 .curveText {
@@ -68,27 +70,20 @@ body {
 }
 
 .card {
-  max-width: 125px;
-  min-width: 125px;
-  color: black;
-  opacity: 0.9;
+  color: #7c4e04;
   padding-left: 2px;
   padding-right: 2px;
   margin: 10px;
 }
 
 .card-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bolder;
 }
 
 .card-subtitle {
   font-size: 11px;
   font-weight: bolder;
-}
-
-.card:hover {
-  background-color: #ffeaea;
 }
 
 .additionalInfo {
@@ -120,43 +115,19 @@ body {
 }
 
 .timeNow {
-  font-size: 17px;
+  font-size: 16px;
+}
+
+.unit {
+  font-size: 35px;
+  font-weight: bold;
+  margin: auto;
 }
 
 .conditiontext {
   text-align: center;
   font-size: 18px;
   font-weight: bolder;
-}
-
-.partlycloudy {
-  font-size: 30px;
-  margin: 10px auto;
-  color: #8d8a8a;
-}
-
-.partlycloudyxl {
-  font-size: 30px;
-  margin: 10px auto;
-  color: #8d8a8a;
-}
-
-.sunny {
-  font-size: 30px;
-  margin: 10px auto;
-  color: #eecf68;
-}
-
-.raining {
-  font-size: 30px;
-  margin: 10px auto;
-  color: #479adf;
-}
-
-.storm {
-  font-size: 30px;
-  margin: 10px auto;
-  color: #5147df;
 }
 
 .thermometer {
